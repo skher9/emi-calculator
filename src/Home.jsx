@@ -100,16 +100,6 @@ const Home = () => {
     return Number((downPaymentPercent / 100) * cost).toFixed(0);
   };
 
-  useEffect(() => {
-    if (!(cost > 0)) {
-      setdownpayment(0);
-      setemi(0);
-    }
-
-    const emi = calculateEMI(downpayment);
-    setemi(emi);
-  }, [cost, downpayment, calculateEMI]);
-
   const updateEMI = (e) => {
     if (!cost) return;
 
@@ -139,6 +129,16 @@ const Home = () => {
   const totalEMI = () => {
     return numberWithCommas((emi * tenure).toFixed(0));
   };
+
+  useEffect(() => {
+    if (!(cost > 0)) {
+      setdownpayment(0);
+      setemi(0);
+    }
+
+    const emi = calculateEMI(downpayment);
+    setemi(emi);
+  }, [cost, downpayment]);
 
   return (
     <Container>
