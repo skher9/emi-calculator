@@ -138,7 +138,7 @@ const Home = () => {
 
     const emi = calculateEMI(downpayment);
     setemi(emi);
-  }, [cost, downpayment]);
+  }, [tenure, cost]);
 
   return (
     <Container>
